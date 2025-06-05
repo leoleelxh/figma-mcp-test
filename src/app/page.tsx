@@ -191,77 +191,79 @@ export default function Dashboard() {
         </div>
 
         {/* 仪表板内容 */}
-        <div className="p-4 lg:p-6 space-y-6">
-          {/* 第一行：支出统计图表 */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[338px]">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-semibold text-secondary-500">Spending Statistics</h2>
-              <div className="flex items-center space-x-2">
-                <button className="w-6 h-6 bg-[#f6f7f9] rounded flex items-center justify-center hover:bg-gray-200">
-                  <ChevronLeft className="w-3 h-3 text-[#596780]" />
-                </button>
-                <span className="font-semibold text-secondary-500 text-sm">2024</span>
-                <button className="w-6 h-6 bg-[#f6f7f9] rounded flex items-center justify-center hover:bg-gray-200">
-                  <ChevronRight className="w-3 h-3 text-[#596780]" />
-                </button>
-              </div>
-            </div>
-
-            {/* 图表区域 */}
-            <div className="relative h-[180px] lg:h-[200px] flex items-end justify-center space-x-4 overflow-x-auto">
-              {/* Y轴标签 */}
-              <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-[#90a3bf]">
-                <span>$15k</span>
-                <span>$10k</span>
-                <span>$5k</span>
-                <span>$1k</span>
-                <span>$500</span>
-              </div>
-
-              {/* 柱状图 */}
-              <div className="flex items-end space-x-3 ml-16">
-                {[
-                  { month: 'Jan', height: 148, color: '#725cff' },
-                  { month: 'Feb', height: 82, color: '#725cff' },
-                  { month: 'Mar', height: 168, color: '#725cff' },
-                  { month: 'Apr', height: 120, color: '#725cff' },
-                  { month: 'Mei', height: 96, color: '#725cff' },
-                  { month: 'Jun', height: 180, color: '#1c1e23' },
-                  { month: 'Jul', height: 120, color: '#725cff' },
-                  { month: 'Aug', height: 130, color: '#725cff' },
-                  { month: 'Sep', height: 180, color: '#725cff' },
-                  { month: 'Oct', height: 158, color: '#725cff' },
-                  { month: 'Nov', height: 120, color: '#725cff' },
-                  { month: 'Des', height: 167, color: '#725cff' }
-                ].map((bar, index) => (
-                  <div key={bar.month} className="flex flex-col items-center">
-                    <div
-                      className="w-3 rounded-t-full"
-                      style={{
-                        height: `${bar.height}px`,
-                        backgroundColor: bar.color
-                      }}
-                    ></div>
-                    <span className={`text-xs mt-2 ${index === 5 ? 'font-bold text-[#14171f] bg-gray-100 px-2 py-1 rounded' : 'text-[#90a3bf]'}`}>
-                      {bar.month}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* 支出提示框 */}
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-[#1c1e23] text-white px-4 py-2 rounded-lg shadow-lg">
-                <div className="text-xs">Expense</div>
-                <div className="text-sm font-semibold">$15.030</div>
-              </div>
-            </div>
-          </div>
-
-          {/* 第二行：收入支出统计和余额 */}
+        <div className="p-4 lg:p-6">
+          {/* 主要布局：左右两列 */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-            {/* 收入支出对比 */}
-            <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[168px]">
-                              <div className="grid grid-cols-1 lg:grid-cols-2 h-full gap-4 lg:gap-0">
+            {/* 左侧列 */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* 支出统计图表 */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[320px]">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-base font-semibold text-secondary-500">Spending Statistics</h2>
+                  <div className="flex items-center space-x-2">
+                    <button className="w-6 h-6 bg-[#f6f7f9] rounded flex items-center justify-center hover:bg-gray-200">
+                      <ChevronLeft className="w-3 h-3 text-[#596780]" />
+                    </button>
+                    <span className="font-semibold text-secondary-500 text-sm">2024</span>
+                    <button className="w-6 h-6 bg-[#f6f7f9] rounded flex items-center justify-center hover:bg-gray-200">
+                      <ChevronRight className="w-3 h-3 text-[#596780]" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* 图表区域 */}
+                <div className="relative h-[180px] lg:h-[220px] flex items-end justify-center space-x-4 overflow-x-auto">
+                  {/* Y轴标签 */}
+                  <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-[#90a3bf]">
+                    <span>$15k</span>
+                    <span>$10k</span>
+                    <span>$5k</span>
+                    <span>$1k</span>
+                    <span>$500</span>
+                  </div>
+
+                  {/* 柱状图 */}
+                  <div className="flex items-end space-x-3 ml-16">
+                    {[
+                      { month: 'Jan', height: 148, color: '#725cff' },
+                      { month: 'Feb', height: 82, color: '#725cff' },
+                      { month: 'Mar', height: 168, color: '#725cff' },
+                      { month: 'Apr', height: 120, color: '#725cff' },
+                      { month: 'Mei', height: 96, color: '#725cff' },
+                      { month: 'Jun', height: 180, color: '#1c1e23' },
+                      { month: 'Jul', height: 120, color: '#725cff' },
+                      { month: 'Aug', height: 130, color: '#725cff' },
+                      { month: 'Sep', height: 180, color: '#725cff' },
+                      { month: 'Oct', height: 158, color: '#725cff' },
+                      { month: 'Nov', height: 120, color: '#725cff' },
+                      { month: 'Des', height: 167, color: '#725cff' }
+                    ].map((bar, index) => (
+                      <div key={bar.month} className="flex flex-col items-center">
+                        <div
+                          className="w-3 rounded-t-full"
+                          style={{
+                            height: `${bar.height}px`,
+                            backgroundColor: bar.color
+                          }}
+                        ></div>
+                        <span className={`text-xs mt-2 ${index === 5 ? 'font-bold text-[#14171f] bg-gray-100 px-2 py-1 rounded' : 'text-[#90a3bf]'}`}>
+                          {bar.month}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* 支出提示框 */}
+                  <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-[#1c1e23] text-white px-4 py-2 rounded-lg shadow-lg">
+                    <div className="text-xs">Expense</div>
+                    <div className="text-sm font-semibold">$15.030</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 收入支出对比 */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[188px]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 h-full gap-4 lg:gap-0 relative">
                   {/* 总收入 */}
                   <div className="lg:pr-8">
                     <h3 className="text-sm font-semibold text-secondary-500 mb-3">Total Income</h3>
@@ -269,240 +271,241 @@ export default function Dashboard() {
                       <span className="text-2xl font-bold text-secondary-500">$50,530.00</span>
                       <span className="text-xs text-secondary-300">( USD )</span>
                     </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-10 h-10 bg-[#f6f7f9] rounded-lg flex items-center justify-center">
-                      <ArrowUp className="w-5 h-5 text-[#7fb519]" />
-                    </div>
-                    <p className="text-xs text-secondary-300">
-                      <span className="font-bold text-success-600">20%</span> increase compared to last week
-                    </p>
-                  </div>
-                </div>
-
-                {/* 分隔线 */}
-                <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 w-px bg-[#f0f0f0]"></div>
-
-                {/* 总支出 */}
-                <div className="lg:pl-8">
-                  <h3 className="text-sm font-semibold text-secondary-500 mb-3">Total Expense</h3>
-                  <div className="flex items-baseline space-x-2 mb-2">
-                    <span className="text-2xl font-bold text-secondary-500">$19,760.00</span>
-                    <span className="text-xs text-secondary-300">( USD )</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-10 h-10 bg-[#f6f7f9] rounded-lg flex items-center justify-center">
-                      <ArrowDown className="w-5 h-5 text-error-500" />
-                    </div>
-                    <p className="text-xs text-secondary-300">
-                      <span className="font-bold text-error-500">10%</span> decrease compared to last week
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 余额卡片 */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[168px]">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-sm font-semibold text-secondary-500">Your balance</h3>
-                <button className="text-secondary-500 hover:bg-gray-100 p-1 rounded">
-                  <MoreHorizontal className="w-5 h-5" />
-                </button>
-              </div>
-              <div className="flex items-baseline space-x-2 mb-2">
-                <span className="text-2xl font-bold text-secondary-500">$120,435.00</span>
-                <span className="text-xs text-secondary-300">( USD )</span>
-              </div>
-              <p className="text-xs text-secondary-300 mb-4">From Jan 01, 2022 to Jan 31, 2022</p>
-              
-              {/* 操作按钮 */}
-              <div className="flex space-x-3">
-                <button className="flex-1 bg-primary-500 text-white py-2.5 px-4 rounded-lg font-semibold text-sm flex items-center justify-center space-x-2 hover:bg-[#6b4ce6] transition-colors">
-                  <Plus className="w-4 h-4" />
-                  <span>Top Up</span>
-                </button>
-                <button className="flex-1 bg-white border-2 border-primary-500 text-primary-500 py-2.5 px-4 rounded-lg font-semibold text-sm flex items-center justify-center space-x-2 hover:bg-[#f8f6ff] transition-colors">
-                  <ArrowUpRight className="w-4 h-4" />
-                  <span>Transfer</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* 第三行：交易历史和分类支出 */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-            {/* 交易历史 */}
-            <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[326px]">
-                              <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-base font-semibold text-secondary-500">Transaction History</h2>
-                <div className="flex items-center space-x-2 border border-[#c3d4e9] rounded px-4 py-2">
-                  <Calendar className="w-4 h-4 text-[#292d32]" />
-                  <span className="text-xs text-[#1a202c]">1 Jan - 1 Feb 2022</span>
-                </div>
-              </div>
-
-              {/* 表头 */}
-              <div className="grid grid-cols-4 gap-4 py-3 border-b border-[#f3f5f7] text-xs text-[#90a3bf] font-medium">
-                <span>Transactions</span>
-                <span>Date</span>
-                <span>Amount</span>
-                <span>Status</span>
-              </div>
-
-              {/* 交易记录 */}
-              <div className="space-y-4 mt-4">
-                {[
-                  {
-                    icon: Building2,
-                    iconBg: 'bg-blue-100',
-                    iconColor: 'text-blue-600',
-                    name: 'Bank Transfer',
-                    date: 'Jan 01,2022',
-                    amount: '$2,000.00',
-                    status: 'Completed',
-                    statusColor: 'bg-green-100 text-green-600'
-                  },
-                  {
-                    icon: Wallet,
-                    iconBg: 'bg-purple-100',
-                    iconColor: 'text-purple-600',
-                    name: 'Paypal Account',
-                    date: 'Jan 04,2022',
-                    amount: '$2,000.00',
-                    status: 'Pending',
-                    statusColor: 'bg-yellow-100 text-yellow-600'
-                  },
-                  {
-                    icon: Building2,
-                    iconBg: 'bg-green-100',
-                    iconColor: 'text-green-600',
-                    name: 'Bank Transfer',
-                    date: 'Jan 06,2022',
-                    amount: '$2,000.00',
-                    status: 'On Hold',
-                    statusColor: 'bg-red-100 text-red-600'
-                  }
-                ].map((transaction, index) => {
-                  const IconComponent = transaction.icon;
-                  return (
-                    <div key={index} className="grid grid-cols-4 gap-4 py-3 items-center">
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-9 h-9 ${transaction.iconBg} rounded-full flex items-center justify-center`}>
-                          <IconComponent className={`w-5 h-5 ${transaction.iconColor}`} />
-                        </div>
-                        <span className="font-semibold text-[#1a202c] text-sm">{transaction.name}</span>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-10 h-10 bg-[#f6f7f9] rounded-lg flex items-center justify-center">
+                        <ArrowUp className="w-5 h-5 text-[#7fb519]" />
                       </div>
-                      <span className="font-semibold text-[#1a202c] text-sm">{transaction.date}</span>
-                      <span className="font-semibold text-[#1a202c] text-sm">{transaction.amount}</span>
-                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${transaction.statusColor}`}>
-                        {transaction.status}
-                      </span>
+                      <p className="text-xs text-secondary-300">
+                        <span className="font-bold text-success-600">20%</span> increase compared to last week
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
+                  </div>
 
-            {/* 分类支出饼图 */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[326px]">
-                              <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-base font-semibold text-secondary-500">Spend by category</h2>
-                <button className="text-[#1a202c] hover:bg-gray-100 p-1 rounded">
-                  <MoreHorizontal className="w-5 h-5" />
-                </button>
-              </div>
+                  {/* 分隔线 */}
+                  <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 w-px bg-[#f0f0f0]"></div>
 
-              {/* 饼图 */}
-              <div className="relative w-[160px] h-[160px] mx-auto mb-4">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  {/* 饼图扇形 */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#eb7ca6"
-                    strokeWidth="20"
-                    strokeDasharray="40.5 251.2"
-                    strokeDashoffset="0"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#ffacc8"
-                    strokeWidth="20"
-                    strokeDasharray="10.8 251.2"
-                    strokeDashoffset="-40.5"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#cc6ff8"
-                    strokeWidth="20"
-                    strokeDasharray="7.6 251.2"
-                    strokeDashoffset="-51.3"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#7c5cfc"
-                    strokeWidth="20"
-                    strokeDasharray="11.4 251.2"
-                    strokeDashoffset="-58.9"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#5caffc"
-                    strokeWidth="20"
-                    strokeDasharray="22.2 251.2"
-                    strokeDashoffset="-70.3"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#a1a9fe"
-                    strokeWidth="20"
-                    strokeDasharray="5.1 251.2"
-                    strokeDashoffset="-92.5"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-sm">
-                    <div className="text-xs text-secondary-400">Overall Spending</div>
-                    <div className="text-sm font-bold text-secondary-500">$19,760.00</div>
+                  {/* 总支出 */}
+                  <div className="lg:pl-8">
+                    <h3 className="text-sm font-semibold text-secondary-500 mb-3">Total Expense</h3>
+                    <div className="flex items-baseline space-x-2 mb-2">
+                      <span className="text-2xl font-bold text-secondary-500">$19,760.00</span>
+                      <span className="text-xs text-secondary-300">( USD )</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-10 h-10 bg-[#f6f7f9] rounded-lg flex items-center justify-center">
+                        <ArrowDown className="w-5 h-5 text-error-500" />
+                      </div>
+                      <p className="text-xs text-secondary-300">
+                        <span className="font-bold text-error-500">10%</span> decrease compared to last week
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* 分类列表 */}
-              <div className="space-y-2">
-                {[
-                  { name: 'Employees Salary', amount: '$8.000.00', color: 'bg-[#eb7ca6]' },
-                  { name: 'Material Supplies', amount: '$2.130.00', color: 'bg-[#ffacc8]' },
-                  { name: 'Company tax', amount: '$1.510.00', color: 'bg-[#cc6ff8]' },
-                  { name: 'Maintenance system', amount: '$2.245.00', color: 'bg-[#7c5cfc]' },
-                  { name: 'Development System', amount: '$4.385.00', color: 'bg-[#5caffc]' },
-                  { name: 'Production Tools', amount: '$1.000.00', color: 'bg-[#a1a9fe]' }
-                ].map((category, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 rounded-full ${category.color}`}></div>
-                      <span className="text-xs text-[#596780]">{category.name}</span>
-                    </div>
-                    <span className="text-sm font-semibold text-[#1a202c]">{category.amount}</span>
+              {/* 交易历史 */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[326px]">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-base font-semibold text-secondary-500">Transaction History</h2>
+                  <div className="flex items-center space-x-2 border border-[#c3d4e9] rounded px-4 py-2">
+                    <Calendar className="w-4 h-4 text-[#292d32]" />
+                    <span className="text-xs text-[#1a202c]">1 Jan - 1 Feb 2022</span>
                   </div>
-                ))}
+                </div>
+
+                {/* 表头 */}
+                <div className="grid grid-cols-4 gap-4 py-3 border-b border-[#f3f5f7] text-xs text-[#90a3bf] font-medium">
+                  <span>Transactions</span>
+                  <span>Date</span>
+                  <span>Amount</span>
+                  <span>Status</span>
+                </div>
+
+                {/* 交易记录 */}
+                <div className="space-y-4 mt-4">
+                  {[
+                    {
+                      icon: Building2,
+                      iconBg: 'bg-blue-100',
+                      iconColor: 'text-blue-600',
+                      name: 'Bank Transfer',
+                      date: 'Jan 01,2022',
+                      amount: '$2,000.00',
+                      status: 'Completed',
+                      statusColor: 'bg-green-100 text-green-600'
+                    },
+                    {
+                      icon: Wallet,
+                      iconBg: 'bg-purple-100',
+                      iconColor: 'text-purple-600',
+                      name: 'Paypal Account',
+                      date: 'Jan 04,2022',
+                      amount: '$2,000.00',
+                      status: 'Pending',
+                      statusColor: 'bg-yellow-100 text-yellow-600'
+                    },
+                    {
+                      icon: Building2,
+                      iconBg: 'bg-green-100',
+                      iconColor: 'text-green-600',
+                      name: 'Bank Transfer',
+                      date: 'Jan 06,2022',
+                      amount: '$2,000.00',
+                      status: 'On Hold',
+                      statusColor: 'bg-red-100 text-red-600'
+                    }
+                  ].map((transaction, index) => {
+                    const IconComponent = transaction.icon;
+                    return (
+                      <div key={index} className="grid grid-cols-4 gap-4 py-3 items-center">
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-9 h-9 ${transaction.iconBg} rounded-full flex items-center justify-center`}>
+                            <IconComponent className={`w-5 h-5 ${transaction.iconColor}`} />
+                          </div>
+                          <span className="font-semibold text-[#1a202c] text-sm">{transaction.name}</span>
+                        </div>
+                        <span className="font-semibold text-[#1a202c] text-sm">{transaction.date}</span>
+                        <span className="font-semibold text-[#1a202c] text-sm">{transaction.amount}</span>
+                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${transaction.statusColor}`}>
+                          {transaction.status}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* 右侧列 */}
+            <div className="space-y-6">
+              {/* 余额卡片 */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[168px]">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-sm font-semibold text-secondary-500">Your balance</h3>
+                  <button className="text-secondary-500 hover:bg-gray-100 p-1 rounded">
+                    <MoreHorizontal className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="flex items-baseline space-x-2 mb-2">
+                  <span className="text-2xl font-bold text-secondary-500">$120,435.00</span>
+                  <span className="text-xs text-secondary-300">( USD )</span>
+                </div>
+                <p className="text-xs text-secondary-300 mb-4">From Jan 01, 2022 to Jan 31, 2022</p>
+                
+                {/* 操作按钮 */}
+                <div className="flex space-x-2">
+                  <button className="flex-1 bg-primary-500 text-white py-2 px-3 rounded-lg font-semibold text-xs flex items-center justify-center space-x-1 hover:bg-[#6b4ce6] transition-colors">
+                    <Plus className="w-3 h-3" />
+                    <span>Top Up</span>
+                  </button>
+                  <button className="flex-1 bg-white border border-primary-500 text-primary-500 py-2 px-3 rounded-lg font-semibold text-xs flex items-center justify-center space-x-1 hover:bg-[#f8f6ff] transition-colors">
+                    <ArrowUpRight className="w-3 h-3" />
+                    <span>Transfer</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 分类支出饼图 */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 lg:p-6 h-auto lg:h-[646px]">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-base font-semibold text-secondary-500">Spend by category</h2>
+                  <button className="text-[#1a202c] hover:bg-gray-100 p-1 rounded">
+                    <MoreHorizontal className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* 饼图 */}
+                <div className="relative w-[200px] h-[200px] mx-auto mb-6">
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    {/* 饼图扇形 */}
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#eb7ca6"
+                      strokeWidth="20"
+                      strokeDasharray="40.5 251.2"
+                      strokeDashoffset="0"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#ffacc8"
+                      strokeWidth="20"
+                      strokeDasharray="10.8 251.2"
+                      strokeDashoffset="-40.5"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#cc6ff8"
+                      strokeWidth="20"
+                      strokeDasharray="7.6 251.2"
+                      strokeDashoffset="-51.3"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#7c5cfc"
+                      strokeWidth="20"
+                      strokeDasharray="11.4 251.2"
+                      strokeDashoffset="-58.9"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#5caffc"
+                      strokeWidth="20"
+                      strokeDasharray="22.2 251.2"
+                      strokeDashoffset="-70.3"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#a1a9fe"
+                      strokeWidth="20"
+                      strokeDasharray="5.1 251.2"
+                      strokeDashoffset="-92.5"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-sm">
+                      <div className="text-xs text-secondary-400">Overall Spending</div>
+                      <div className="text-lg font-bold text-secondary-500">$19,760.00</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 分类列表 */}
+                <div className="space-y-3">
+                  {[
+                    { name: 'Employees Salary', amount: '$8.000.00', color: 'bg-[#eb7ca6]' },
+                    { name: 'Material Supplies', amount: '$2.130.00', color: 'bg-[#ffacc8]' },
+                    { name: 'Company tax', amount: '$1.510.00', color: 'bg-[#cc6ff8]' },
+                    { name: 'Maintenance system', amount: '$2.245.00', color: 'bg-[#7c5cfc]' },
+                    { name: 'Development System', amount: '$4.385.00', color: 'bg-[#5caffc]' },
+                    { name: 'Production Tools', amount: '$1.000.00', color: 'bg-[#a1a9fe]' }
+                  ].map((category, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-3 h-3 rounded-full ${category.color}`}></div>
+                        <span className="text-xs text-[#596780]">{category.name}</span>
+                      </div>
+                      <span className="text-sm font-semibold text-[#1a202c]">{category.amount}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
